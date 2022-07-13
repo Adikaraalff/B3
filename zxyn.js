@@ -136,17 +136,17 @@ module.exports = zxyn = async (zxyn, m, chatUpdate, store) => {
 	    if (setting) {
 		if (!isNumber(setting.status)) setting.status = 0
 		if (!('autobio' in setting)) setting.autobio = false
-		if (!('templateImage' in setting)) setting.templateImage = false
+		if (!('templateImage' in setting)) setting.templateImage = true
 		if (!('templateVideo' in setting)) setting.templateVideo = false
-		if (!('templateGif' in setting)) setting.templateGif = true
+		if (!('templateGif' in setting)) setting.templateGif = false
 		if (!('templateMsg' in setting)) setting.templateMsg = false
 		if (!('templateLocation' in setting)) setting.templateLocation = false
 	    } else global.db.data.settings[botNumber] = {
 		status: 0,
 		autobio: false,
-		templateImage: false,
+		templateImage: true,
 		templateVideo: false,
-		templateGif: true,
+		templateGif: false,
 		templateMsg: false,
 		templateLocation: false,
 	    }
@@ -159,8 +159,7 @@ module.exports = zxyn = async (zxyn, m, chatUpdate, store) => {
 // Other
 const isSewa = _sewa.checkSewaGroup(from, sewa)
 //Sewa
-_sewa.expiredCheck(
-	, sewa)
+_sewa.expiredCheck(zxyn, sewa)
 	
         // Public & Self
         if (!zxyn.public) {
