@@ -1,5 +1,5 @@
 /**
-   * Recode By Adikaralff
+   * Recode By Adikaraalff
    * Contact Me on wa.me/6282180788179
    * Follow https://github.com/Adikaraalff
    * Base Dika Ardnt
