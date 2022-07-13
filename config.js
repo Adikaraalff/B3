@@ -13,7 +13,7 @@ global.APIKeys = {
 
 // Other
 global.namabot = ['AxeBot']
-global.namaowner = ['Adikaraalf']
+global.namaowner = ['Adikaraalff']
 global.owner = ['6282180788179']
 global.premium = ['6282180788179']
 global.packname = 'Axe'
