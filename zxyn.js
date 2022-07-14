@@ -40,7 +40,6 @@ let vote = db.data.others.vote = []
 let ssewa = JSON.parse(fs.readFileSync('./database/sewa.json'));
 let _sewa = require("./lib/sewa");
 const sewa = JSON.parse(fs.readFileSync('./database/sewa.json'));
-
 // UCAPAN WAKTU
 const time = moment.tz('Asia/Jakarta').format('HH:mm:ss')
 // TANGGAL
@@ -136,17 +135,17 @@ module.exports = zxyn = async (zxyn, m, chatUpdate, store) => {
 	    if (setting) {
 		if (!isNumber(setting.status)) setting.status = 0
 		if (!('autobio' in setting)) setting.autobio = false
-		if (!('templateImage' in setting)) setting.templateImage = true
+		if (!('templateImage' in setting)) setting.templateImage = false
 		if (!('templateVideo' in setting)) setting.templateVideo = false
-		if (!('templateGif' in setting)) setting.templateGif = false
+		if (!('templateGif' in setting)) setting.templateGif = true
 		if (!('templateMsg' in setting)) setting.templateMsg = false
 		if (!('templateLocation' in setting)) setting.templateLocation = false
 	    } else global.db.data.settings[botNumber] = {
 		status: 0,
 		autobio: false,
-		templateImage: true,
+		templateImage: false,
 		templateVideo: false,
-		templateGif: false,
+		templateGif: true,
 		templateMsg: false,
 		templateLocation: false,
 	    }
@@ -193,7 +192,7 @@ _sewa.expiredCheck(zxyn, sewa)
 		setting.status = new Date() * 1
 	    }
 	}
-	    
+
 	  // Anti Link
         if (db.data.chats[m.chat].antilink) {
         if (budy.match(`chat.whatsapp.com`)) {
@@ -278,7 +277,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebakgambar[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `🎮 Tebak Gambar 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, '© ZxynOfc', m)
+                await zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `🎮 Tebak Gambar 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, '© AxE', m)
                 delete tebakgambar[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -287,7 +286,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebakkata[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `🎮 Tebak Kata 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, '© ZxynOfc', m)
+                await zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `🎮 Tebak Kata 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, '© AxE', m)
                 delete tebakkata[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -297,7 +296,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             jawaban = caklontong[m.sender.split('@')[0]]
 	    deskripsi = caklontong_desk[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `🎮 Cak Lontong 🎮\n\nJawaban Benar 🎉\n*${deskripsi}*\n\nIngin bermain lagi? tekan button dibawah`, '© ZxynOfc', m)
+                await zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `🎮 Cak Lontong 🎮\n\nJawaban Benar 🎉\n*${deskripsi}*\n\nIngin bermain lagi? tekan button dibawah`, '© AxE', m)
                 delete caklontong[m.sender.split('@')[0]]
 		delete caklontong_desk[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
@@ -307,7 +306,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebakkalimat[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `🎮 Tebak Kalimat 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, '© ZxynOfc', m)
+                await zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `🎮 Tebak Kalimat 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, '© AxE', m)
                 delete tebakkalimat[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -316,7 +315,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebaklirik[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `🎮 Tebak Lirik 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, '© ZxynOfc', m)
+                await zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `🎮 Tebak Lirik 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, '© AxE', m)
                 delete tebaklirik[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -325,7 +324,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
             kuis = true
             jawaban = tebaktebakan[m.sender.split('@')[0]]
             if (budy.toLowerCase() == jawaban) {
-                await zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak tebakan', buttonText: { displayText: 'Tebak Tebakan' }, type: 1 }], `🎮 Tebak Tebakan 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, '© ZxynOfc', m)
+                await zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak tebakan', buttonText: { displayText: 'Tebak Tebakan' }, type: 1 }], `🎮 Tebak Tebakan 🎮\n\nJawaban Benar 🎉\n\nIngin bermain lagi? tekan button dibawah`, '© AxE', m)
                 delete tebaktebakan[m.sender.split('@')[0]]
             } else m.reply('*Jawaban Salah!*')
         }
@@ -597,8 +596,8 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 anu = `*Base Ori : Dika Ardnt*
 https://github.com/DikaArdnt
 
-*Recode By : Yosa Ardn*
-https://github.com/YosaArdn`
+*Recode By : Adikaraalff*
+https://github.com/Adikaraalff`
 let btn = [{
                                 urlButton: {
                                     displayText: 'Source Code',
@@ -607,15 +606,15 @@ let btn = [{
                             }]
                          let setbot = db.data.settings[botNumber]
                         if (setbot.templateImage) {
-                        zxyn.send5ButImg(m.chat, anu, '© ZxynOfc', global.thumb, btn, global.thumb)
+                        zxyn.send5ButImg(m.chat, anu, '© AxE', global.thumb, btn, global.thumb)
                         } else if (setbot.templateGif) {
-                        zxyn.send5ButGif(m.chat, anu, '© ZxynOfc', global.visoka, btn, global.thumb)
+                        zxyn.send5ButGif(m.chat, anu, '© AxE', global.visoka, btn, global.thumb)
                         } else if (setbot.templateVid) {
-                        zxyn.send5ButVid(m.chat, anu, '© ZxynOfc', global.visoka, btn, global.thumb)
+                        zxyn.send5ButVid(m.chat, anu, '© AxE', global.visoka, btn, global.thumb)
                         } else if (setbot.templateMsg) {
-                        zxyn.send5ButMsg(m.chat, anu, '© ZxynOfc', btn)
+                        zxyn.send5ButMsg(m.chat, anu, '© AxE', btn)
                         } else if (setbot.templateLocation) {
-                        zxyn.send5ButLoc(m.chat, anu, '© ZxynOfc', global.thumb, btn)
+                        zxyn.send5ButLoc(m.chat, anu, '© AxE', global.thumb, btn)
                         }
                      }
             break
@@ -675,7 +674,7 @@ let btn = [{
                     await sleep(60000)
                     if (tebaklagu.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'Tebak Lagu' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklagu[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, '© ZxynOfc', m)
+                    zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak lagu', buttonText: { displayText: 'Tebak Lagu' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklagu[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, '© AxE', m)
                     delete tebaklagu[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'gambar') {
@@ -688,7 +687,7 @@ let btn = [{
                     await sleep(60000)
                     if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakgambar[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, '© ZxynOfc', m)
+                    zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak gambar', buttonText: { displayText: 'Tebak Gambar' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakgambar[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, '© AxE', m)
                     delete tebakgambar[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'kata') {
@@ -701,7 +700,7 @@ let btn = [{
                     await sleep(60000)
                     if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkata[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, '© ZxynOfc', m)
+                    zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak kata', buttonText: { displayText: 'Tebak Kata' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkata[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, '© AxE', m)
                     delete tebakkata[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'kalimat') {
@@ -714,7 +713,7 @@ let btn = [{
                     await sleep(60000)
                     if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkalimat[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, '© ZxynOfc', m)
+                    zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak kalimat', buttonText: { displayText: 'Tebak Kalimat' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebakkalimat[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, '© AxE', m)
                     delete tebakkalimat[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'lirik') {
@@ -727,7 +726,7 @@ let btn = [{
                     await sleep(60000)
                     if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklirik[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, '© ZxynOfc', m)
+                    zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak lirik', buttonText: { displayText: 'Tebak Lirik' }, type: 1 }], `Waktu Habis\nJawaban:  ${tebaklirik[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, '© AxE', m)
                     delete tebaklirik[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'lontong') {
@@ -741,7 +740,7 @@ let btn = [{
                     await sleep(60000)
                     if (caklontong.hasOwnProperty(m.sender.split('@')[0])) {
                     console.log("Jawaban: " + result.jawaban)
-                    zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `Waktu Habis\nJawaban:  ${caklontong[m.sender.split('@')[0]]}\nDeskripsi : ${caklontong_desk[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, '© ZxynOfc', m)
+                    zxyn.sendButtonText(m.chat, [{ buttonId: 'tebak lontong', buttonText: { displayText: 'Tebak Lontong' }, type: 1 }], `Waktu Habis\nJawaban:  ${caklontong[m.sender.split('@')[0]]}\nDeskripsi : ${caklontong_desk[m.sender.split('@')[0]]}\n\nIngin bermain? tekan button dibawah`, '© AxE', m)
                     delete caklontong[m.sender.split('@')[0]]
 		    delete caklontong_desk[m.sender.split('@')[0]]
                     }
@@ -776,7 +775,7 @@ let btn = [{
             let buttons = [
                         { buttonId: 'jodohku', buttonText: { displayText: 'Jodohku' }, type: 1 }
                     ]
-                    await zxyn.sendButtonText(m.chat, buttons, jawab, '© ZxynOfc', m, {mentions: ments})
+                    await zxyn.sendButtonText(m.chat, buttons, jawab, '© AxE', m, {mentions: ments})
             }
             break
             case 'jadian': {
@@ -791,7 +790,7 @@ let btn = [{
             let buttons = [
                         { buttonId: 'jadian', buttonText: { displayText: 'Jodohku' }, type: 1 }
                     ]
-                    await zxyn.sendButtonText(m.chat, buttons, jawab, '© ZxynOfc', m, {mentions: menst})
+                    await zxyn.sendButtonText(m.chat, buttons, jawab, '© AxE', m, {mentions: menst})
             }
             break
             case 'react': {
@@ -984,7 +983,7 @@ let buttonsVote = [
 
             let buttonMessageVote = {
                 text: teks_vote,
-                footer: '© ZxynOfc',
+                footer: '© AxE',
                 buttons: buttonsVote,
                 headerType: 1
             }
@@ -1025,7 +1024,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 
             let buttonMessageUpvote = {
                 text: teks_vote,
-                footer: '© ZxynOfc',
+                footer: '© AxE',
                 buttons: buttonsUpvote,
                 headerType: 1,
                 mentions: menvote
@@ -1067,7 +1066,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 
             let buttonMessageDevote = {
                 text: teks_vote,
-                footer: '© ZxynOfc',
+                footer: '© AxE',
                 buttons: buttonsDevote,
                 headerType: 1,
                 mentions: menvote
@@ -1124,7 +1123,7 @@ break
                         { buttonId: 'group open', buttonText: { displayText: 'Open' }, type: 1 },
                         { buttonId: 'group close', buttonText: { displayText: 'Close' }, type: 1 }
                     ]
-                    await zxyn.sendButtonText(m.chat, buttons, `Mode Group`, '© ZxynOfc', m)
+                    await zxyn.sendButtonText(m.chat, buttons, `Mode Group`, '© AxE', m)
 
              }
             }
@@ -1142,7 +1141,7 @@ break
                         { buttonId: 'editinfo open', buttonText: { displayText: 'Open' }, type: 1 },
                         { buttonId: 'editinfo close', buttonText: { displayText: 'Close' }, type: 1 }
                     ]
-                    await zxyn.sendButtonText(m.chat, buttons, `Mode Edit Info`, '© ZxynOfc', m)
+                    await zxyn.sendButtonText(m.chat, buttons, `Mode Edit Info`, '© AxE', m)
 
             }
             }
@@ -1164,7 +1163,7 @@ break
                         { buttonId: 'antilink on', buttonText: { displayText: 'On' }, type: 1 },
                         { buttonId: 'antilink off', buttonText: { displayText: 'Off' }, type: 1 }
                     ]
-                    await zxyn.sendButtonText(m.chat, buttons, `Mode Antilink`, '© ZxynOfc', m)
+                    await zxyn.sendButtonText(m.chat, buttons, `Mode Antilink`, '© AxE', m)
                 }
              }
              break
@@ -1185,7 +1184,7 @@ break
                         { buttonId: 'mute on', buttonText: { displayText: 'On' }, type: 1 },
                         { buttonId: 'mute off', buttonText: { displayText: 'Off' }, type: 1 }
                     ]
-                    await zxyn.sendButtonText(m.chat, buttons, `Mute Bot`, '© ZxynOfc', m)
+                    await zxyn.sendButtonText(m.chat, buttons, `Mute Bot`, '© AxE', m)
                 }
              }
              break
@@ -1220,7 +1219,7 @@ break
                 ]
                 },
                 ]
-                zxyn.sendListMsg(m.chat, `Please select the following Ephemeral Options List !`, '© ZxynOfc', `Hello Admin ${groupMetadata.subject}`, `Click Here`, sections, m)
+                zxyn.sendListMsg(m.chat, `Please select the following Ephemeral Options List !`, '© AxE', `Hello Admin ${groupMetadata.subject}`, `Click Here`, sections, m)
                 }
             }
             break
@@ -1267,7 +1266,7 @@ break
                                 }
                             }]
                       let txt = `「 Broadcast Bot 」\n\n${text}`
-                      zxyn.send5ButImg(i, txt, '© ZxynOfc', global.thumb, btn)
+                      zxyn.send5ButImg(i, txt, '© AxE', global.thumb, btn)
                     }
                 m.reply(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
             }
@@ -1306,7 +1305,7 @@ break
                                 }
                             }]
                       let txt = `「 Broadcast Bot 」\n\n${text}`
-                      zxyn.send5ButImg(yoi, txt, '© ZxynOfc', global.thumb, btn)
+                      zxyn.send5ButImg(yoi, txt, '© AxE', global.thumb, btn)
 		}
 		m.reply('Sukses Broadcast')
             }
@@ -1501,7 +1500,7 @@ break
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
             let audio = await toAudio(media, 'mp4')
-            zxyn.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Convert By ${'© ZxynOfc'}.mp3`}, { quoted : m })
+            zxyn.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Convert By ${'© AxE'}.mp3`}, { quoted : m })
             }
             break
             case 'tovn': case 'toptt': {
@@ -1604,7 +1603,7 @@ break
                     caption: `*-------「 GIMAGE SEARCH 」-------*
 🤠 *Query* : ${text}
 🔗 *Media Url* : ${images}`,
-                    footer: '© ZxynOfc',
+                    footer: '© AxE',
                     buttons: buttons,
                     headerType: 4
                 }
@@ -1634,7 +1633,7 @@ break
 ⭔ Channel : ${anu.author.url}
 ⭔ Description : ${anu.description}
 ⭔ Url : ${anu.url}`,
-                    footer: '© ZxynOfc',
+                    footer: '© AxE',
                     buttons: buttons,
                     headerType: 4
                 }
@@ -1715,7 +1714,7 @@ break
                 let buttonMessage = {
                     image: { url: 'https://coffee.alexflipnote.dev/random' },
                     caption: `☕ Random Coffe`,
-                    footer: '© ZxynOfc',
+                    footer: '© AxE',
                     buttons: buttons,
                     headerType: 4
                 }
@@ -1733,7 +1732,7 @@ break
                 let buttonMessage = {
                     image: { url: result.image[0] },
                     caption: `⭔ Title : ${result.title}\n⭔ Category : ${result.type}\n⭔ Detail : ${result.source}\n⭔ Media Url : ${result.image[2] || result.image[1] || result.image[0]}`,
-                    footer: '© ZxynOfc',
+                    footer: '© AxE',
                     buttons: buttons,
                     headerType: 4
                 }
@@ -1751,7 +1750,7 @@ break
                 let buttonMessage = {
                     image: { url: result.image },
                     caption: `⭔ Title : ${result.title}\n⭔ Source : ${result.source}\n⭔ Media Url : ${result.image}`,
-                    footer: '© ZxynOfc',
+                    footer: '© AxE',
                     buttons: buttons,
                     headerType: 4
                 }
@@ -2271,7 +2270,7 @@ break
 ⭔ Url : ${anu.media[0]}
 Untuk Download Media Silahkan Klik salah satu Button dibawah ini atau masukkan command ytmp3/ytmp4 dengan url diatas
 `,
-			footer: '© ZxynOfc',
+			footer: '© AxE',
 			buttons,
 			headerType: 4
 		    }
@@ -2500,7 +2499,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
 				let buttons = [
                     { buttonId: 'start', buttonText: { displayText: 'Start' }, type: 1 }
                 ]
-                zxyn.sendButtonText(m.chat, buttons, `\`\`\`Hi ${await zxyn.getName(m.sender)} Welcome To Anonymous Chat\n\nKlik Button Dibawah Ini Untuk Mencari Partner\`\`\``, '© ZxynOfc', m)
+                zxyn.sendButtonText(m.chat, buttons, `\`\`\`Hi ${await zxyn.getName(m.sender)} Welcome To Anonymous Chat\n\nKlik Button Dibawah Ini Untuk Mencari Partner\`\`\``, '© AxE', m)
             }
 			break
             case 'keluar': case 'leave': {
@@ -2527,7 +2526,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     let buttons = [
                         { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }
                     ]
-                    await zxyn.sendButtonText(m.chat, buttons, `\`\`\`Kamu Masih Berada Di dalam Sesi Anonymous, Tekan Button Dibawah Ini Untuk Menghentikan Sesi Anonymous Anda\`\`\``, '© ZxynOfc', m)
+                    await zxyn.sendButtonText(m.chat, buttons, `\`\`\`Kamu Masih Berada Di dalam Sesi Anonymous, Tekan Button Dibawah Ini Untuk Menghentikan Sesi Anonymous Anda\`\`\``, '© AxE', m)
                     throw false
                 }
                 let room = Object.values(this.anonymous).find(room => room.state === 'WAITING' && !room.check(m.sender))
@@ -2536,10 +2535,10 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                         { buttonId: 'next', buttonText: { displayText: 'Skip' }, type: 1 },
                         { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }
                     ]
-                    await zxyn.sendButtonText(room.a, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, '© ZxynOfc', m)
+                    await zxyn.sendButtonText(room.a, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, '© AxE', m)
                     room.b = m.sender
                     room.state = 'CHATTING'
-                    await zxyn.sendButtonText(room.b, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, '© ZxynOfc', m)
+                    await zxyn.sendButtonText(room.b, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, '© AxE', m)
                 } else {
                     let id = + new Date
                     this.anonymous[id] = {
@@ -2557,7 +2556,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     let buttons = [
                         { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }
                     ]
-                    await zxyn.sendButtonText(m.chat, buttons, `\`\`\`Mohon Tunggu Sedang Mencari Partner\`\`\``, '© ZxynOfc', m)
+                    await zxyn.sendButtonText(m.chat, buttons, `\`\`\`Mohon Tunggu Sedang Mencari Partner\`\`\``, '© AxE', m)
                 }
                 break
             }
@@ -2581,10 +2580,10 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                         { buttonId: 'next', buttonText: { displayText: 'Skip' }, type: 1 },
                         { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }
                     ]
-                    await zxyn.sendButtonText(room.a, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, '© ZxynOfc', m)
+                    await zxyn.sendButtonText(room.a, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, '© AxE', m)
                     room.b = m.sender
                     room.state = 'CHATTING'
-                    await zxyn.sendButtonText(room.b, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, '© ZxynOfc', m)
+                    await zxyn.sendButtonText(room.b, buttons, `\`\`\`Berhasil Menemukan Partner, sekarang kamu dapat mengirim pesan\`\`\``, '© AxE', m)
                 } else {
                     let id = + new Date
                     this.anonymous[id] = {
@@ -2602,7 +2601,7 @@ Lihat list Pesan Dengan ${prefix}listmsg`)
                     let buttons = [
                         { buttonId: 'keluar', buttonText: { displayText: 'Stop' }, type: 1 }
                     ]
-                    await zxyn.sendButtonText(m.chat, buttons, `\`\`\`Mohon Tunggu Sedang Mencari Partner\`\`\``, '© ZxynOfc', m)
+                    await zxyn.sendButtonText(m.chat, buttons, `\`\`\`Mohon Tunggu Sedang Mencari Partner\`\`\``, '© AxE', m)
                 }
                 break
             }
@@ -2851,7 +2850,7 @@ let capt = `⭔ Title: ${judul}
                 ]
                 },
                 ]
-                zxyn.sendListMsg(m.chat, `Please select the menu you want to change!`, '© ZxynOfc', `Hello Owner !`, `Click Here`, sections, m)
+                zxyn.sendListMsg(m.chat, `Please select the menu you want to change!`, '© AxE', `Hello Owner !`, `Click Here`, sections, m)
                 }
             }
             break
@@ -2921,7 +2920,7 @@ anu = `╭──「 *SEWABOT* 」
 ├  NAMA BOT, NAMA OWNER, OWNER, DLL DI GANTI JADI TERSERAH LU
 ╰────
 ╭─[ *MINAT CHAT* ]
-├  🪀 wa.me/6283149781035?text=JADIBOT
+├  🪀 wa.me/6282180788179?text=JADIBOT
 ╰────
 ╭─[ *PAYMENT* ]
 ├  GOPAY
@@ -2946,27 +2945,27 @@ let btn = [{
                             }]
                          let setbot = db.data.settings[botNumber]
                         if (setbot.templateImage) {
-                        zxyn.send5ButImg(m.chat, anu, '© ZxynOfc', global.thumb, btn, global.thumb)
+                        zxyn.send5ButImg(m.chat, anu, '© AxE', global.thumb, btn, global.thumb)
                         } else if (setbot.templateGif) {
-                        zxyn.send5ButGif(m.chat, anu, '© ZxynOfc', global.visoka, btn, global.thumb)
+                        zxyn.send5ButGif(m.chat, anu, '© AxE', global.visoka, btn, global.thumb)
                         } else if (setbot.templateVid) {
-                        zxyn.send5ButVid(m.chat, anu, '© ZxynOfc', global.visoka, btn, global.thumb)
+                        zxyn.send5ButVid(m.chat, anu, '© AxE', global.visoka, btn, global.thumb)
                         } else if (setbot.templateMsg) {
-                        zxyn.send5ButMsg(m.chat, anu, '© ZxynOfc', btn)
+                        zxyn.send5ButMsg(m.chat, anu, '© AxE', btn)
                         } else if (setbot.templateLocation) {
-                        zxyn.send5ButLoc(m.chat, anu, '© ZxynOfc', global.thumb, btn)
+                        zxyn.send5ButLoc(m.chat, anu, '© AxE', global.thumb, btn)
                         }
             break
 case 'gopay': {
-                zxyn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/958dce9d8198da96f99a1.jpg' }, caption: `Gopay` }, { quoted: m })
+                zxyn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/d1506eb65114b620c2720.jpg' }, caption: `Gopay` }, { quoted: m })
             }
             break
 case 'dana': {
-                zxyn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/aac285790dfe170859d87.jpg' }, caption: `DANA` }, { quoted: m })
+                zxyn.sendMessage(m.chat, { image: { url: 'https://telegra.ph/file/6934f829414be88dc35fd.jpg' }, caption: `DANA` }, { quoted: m })
             }
             break
 case 'pulsa': {
-m.reply('083149781035')
+m.reply('082180788179')
 }
 break
 // Button List
@@ -2976,7 +2975,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                     title: `${ucapanWaktu} ${pushname}\n\nJika Kamu Menemukan Semacam Bug Atau Kesalahan Harap Lapor Ke Owner Agar Segera Di Perbaiki😁\n`,
                     description: "*Klik Tombol Dibawah Untuk Melihat Menu Yang Tersedia👇*",
                     buttonText: "KLIK DISINI",
-                    footerText: "ZxynOfc",
+                    footerText: "AxE",
                     listType: "SINGLE_SELECT",
                     sections: [{
 								"title": "All Menu Bot",
