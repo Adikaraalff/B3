@@ -1694,9 +1694,9 @@ break
                 zxyn.sendMessage(m.chat, { image: { url: result }, caption: '⭔ Media Url : '+result }, { quoted: m })
             }
             break
-            case 'anime': case 'waifu': case 'husbu': case 'neko': case 'shinobu': case 'megumin': case 'waifus': case 'nekos': case 'trap': case 'blowjob': {
+            case 'ass': case 'ahegao': case 'bdsm': case 'blowjob': case 'cuckold': case 'cum': case 'ero': case 'femdom': case 'foot': case 'gangbang': case 'glasses': case 'hentai': case'hentaigif' : case 'jahy': case 'manga': case 'masturbation': case 'neko': case 'orgy': case 'panties': case 'pussy': case 'thighs': case 'yuri': {
                 m.reply(mess.wait)
-                zxyn.sendMessage(m.chat, { image: { url: api('zenz', '/api/random/'+command, {}, 'apikey') }, caption: 'Generate Random ' + command }, { quoted: m })
+                zxyn.sendMessage(m.chat, { image: { url: api('zenz', '/api/morensfw/'+command, {}, 'apikey') }, caption: 'Generate Random ' + command }, { quoted: m })
             }
             break
 	    case 'couple': {
@@ -2799,14 +2799,6 @@ let capt = `⭔ Title: ${judul}
             zxyn.sendImage(m.chat, res.result[0].thumbnail, capt, m)
             }
             break
-            //await fetchJson(`https://rest2yeriko.herokuapp.com/api/nsfw/${command}?apikey=Yuzzu`)
-            case 'ass': case 'ahegao': case 'bdsm': case 'blowjob': case 'cuckold': case 'cum': case 'ero': case 'femdom': case 'foot': case 'gangbang': case 'glasses': case 'hentai': case 'jahy': case 'masturbation': case 'neko': case 'orgy': case 'panties': case 'pussy': case 'thighs': case 'yuri': 
-            zxyn.reply(mess.wait)
-            bikep = await fetchJson(api('zenz', '/api/morensfw', { query: text }, 'apikey'))
-            bokep = await getBuffer(bikep.result)
-            zxyn.sendImage(from, `JANGAN KE WC DULU BRO\nDOSA TANGGUNG USER SENDIRI`, `MAU LAGI?KLIK BUTTON DI BAWAH⬇️⬇️`, bokep, [{buttonId: `${prefix}${command}`,buttonText: {displayText: `AGAIN➡️`,},type: 1,},]);
-            zyyn.limitAdd(sender, _limit)
-            break
             case 'setmenu': {
             if (!isCreator) throw mess.owner
             let setbot = db.data.settings[botNumber]
@@ -3084,9 +3076,9 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 										"rowId": `${prefix}voicechangermenu`
 									},
                                     {
-										"title": "Hentai",
-										"description": "Menampilkan Hentai Menu",
-										"rowId": `${prefix}hentaimenu`
+										"title": "ANIME",
+										"description": "Menampilkan Anime Menu",
+										"rowId": `${prefix}animemenu`
 									}
 										]
 										},
@@ -3227,7 +3219,7 @@ anu = `${ucapanWaktu} ${pushname}
 │➪ ${prefix}ringtone [query]
 │➪ ${prefix}stalk [option] [query]
 ╰───────────────❏
-╭─❏ *『 HENTAI MENU 』*
+╭─❏ *『 ANIME MENU 』*
 │➪ ${prefix}ass
 │➪ ${prefix}ahegao
 │➪ ${prefix}bdsm
@@ -3240,7 +3232,9 @@ anu = `${ucapanWaktu} ${pushname}
 │➪ ${prefix}gangbang
 │➪ ${prefix}glasses
 │➪ ${prefix}hentai
+│➪ ${prefix}hentaigif
 │➪ ${prefix}jahy
+│➪ ${prefix}manga
 │➪ ${prefix}masturbation
 │➪ ${prefix}neko
 │➪ ${prefix}orgy
@@ -3258,11 +3252,6 @@ anu = `${ucapanWaktu} ${pushname}
 │➪ ${prefix}katasenja
 │➪ ${prefix}puisi
 │➪ ${prefix}couple
-│➪ ${prefix}anime
-│➪ ${prefix}waifu
-│➪ ${prefix}husbu
-│➪ ${prefix}neko
-│➪ ${prefix}shinobu
 ╰───────────────❏
 ╭─❏ *『 TEXT PRO MENU 』*
 │➪ ${prefix}3dchristmas
@@ -3869,7 +3858,7 @@ let btn = [{
                         }
                      }
             break
-case 'hentaimenu': {
+case 'animemenu': {
 anu = `${ucapanWaktu} ${pushname}
 ╭─❏ *『 INFO USER 』*
 │ ➪ Name : ${pushname}
@@ -3892,7 +3881,7 @@ anu = `${ucapanWaktu} ${pushname}
 ╰───────────────❏
 
 
-╭─❏ *『 HENTAI MENU 』*
+╭─❏ *『 ANIME MENU 』*
 │➪ ${prefix}ass
 │➪ ${prefix}ahegao
 │➪ ${prefix}bdsm
@@ -3905,7 +3894,9 @@ anu = `${ucapanWaktu} ${pushname}
 │➪ ${prefix}gangbang
 │➪ ${prefix}glasses
 │➪ ${prefix}hentai
+│➪ ${prefix}hentaigif
 │➪ ${prefix}jahy
+│➪ ${prefix}manga
 │➪ ${prefix}masturbation
 │➪ ${prefix}neko
 │➪ ${prefix}orgy
@@ -3986,11 +3977,6 @@ anu = `${ucapanWaktu} ${pushname}
 │➪ ${prefix}katasenja
 │➪ ${prefix}puisi
 │➪ ${prefix}couple
-│➪ ${prefix}anime
-│➪ ${prefix}waifu
-│➪ ${prefix}husbu
-│➪ ${prefix}neko
-│➪ ${prefix}shinobu
 ╰───────────────❏`
 let btn = [{
                                 urlButton: {
