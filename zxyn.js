@@ -2799,6 +2799,14 @@ let capt = `⭔ Title: ${judul}
             zxyn.sendImage(m.chat, res.result[0].thumbnail, capt, m)
             }
             break
+            //await fetchJson(`https://rest2yeriko.herokuapp.com/api/nsfw/${command}?apikey=Yuzzu`)
+            case 'ass': case 'ahegao': case 'bdsm': case 'blowjob': case 'cuckold': case 'cum': case 'ero': case 'femdom': case 'foot': case 'gangbang': case 'glasses': case 'hentai': case 'jahy': case 'masturbation': case 'neko': case 'orgy': case 'panties': case 'pussy': case 'thighs': case 'yuri': 
+            zxyn.reply(mess.wait)
+            bikep = await fetchJson(api('zenz', '/api/morensfw', { query: text }, 'apikey'))
+            bokep = await getBuffer(bikep.result)
+            zxyn.sendImage(from, `JANGAN KE WC DULU BRO\nDOSA TANGGUNG USER SENDIRI`, `MAU LAGI?KLIK BUTTON DI BAWAH⬇️⬇️`, bokep, [{buttonId: `${prefix}${command}`,buttonText: {displayText: `AGAIN➡️`,},type: 1,},]);
+            zyyn.limitAdd(sender, _limit)
+            break
             case 'setmenu': {
             if (!isCreator) throw mess.owner
             let setbot = db.data.settings[botNumber]
@@ -2897,7 +2905,7 @@ anu = `╭──「 *SEWABOT* 」
 ├  DAN RATUSAN FITUR LAINYA
 ╰────
 ╭─[ *MINAT CHAT* ]
-├  🪀 wa.me/6283149781035?text=SEWABOT
+├  🪀 wa.me/6282180788179?text=SEWABOT
 ╰────
 ╭─[ *PAYMENT* ]
 ├  GOPAY
@@ -3074,6 +3082,11 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
 										"title": "Voice Changer",
 										"description": "Menampilkan Voice Changer Menu",
 										"rowId": `${prefix}voicechangermenu`
+									},
+                                    {
+										"title": "Hentai",
+										"description": "Menampilkan Hentai Menu",
+										"rowId": `${prefix}hentaimenu`
 									}
 										]
 										},
@@ -3133,7 +3146,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -3213,6 +3226,28 @@ anu = `${ucapanWaktu} ${pushname}
 │➪ ${prefix}ytsearch [query]
 │➪ ${prefix}ringtone [query]
 │➪ ${prefix}stalk [option] [query]
+╰───────────────❏
+╭─❏ *『 HENTAI MENU 』*
+│➪ ${prefix}ass
+│➪ ${prefix}ahegao
+│➪ ${prefix}bdsm
+│➪ ${prefix}blowjob
+│➪ ${prefix}cuckold
+│➪ ${prefix}cum
+│➪ ${prefix}ero
+│➪ ${prefix}femdom
+│➪ ${prefix}foot
+│➪ ${prefix}gangbang
+│➪ ${prefix}glasses
+│➪ ${prefix}hentai
+│➪ ${prefix}jahy
+│➪ ${prefix}masturbation
+│➪ ${prefix}neko
+│➪ ${prefix}orgy
+│➪ ${prefix}panties
+│➪ ${prefix}pussy
+│➪ ${prefix}things
+│➪ ${prefix}yuri
 ╰───────────────❏
 ╭─❏ *『 RANDOM MENU 』*
 │➪ ${prefix}coffe
@@ -3461,7 +3496,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm:ss')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm:ss')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm:ss')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm:ss')}
 ╰───────────────❏
 
@@ -3538,7 +3573,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -3624,7 +3659,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -3697,7 +3732,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -3777,7 +3812,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -3793,6 +3828,91 @@ anu = `${ucapanWaktu} ${pushname}
 │➪ ${prefix}ytsearch [query]
 │➪ ${prefix}ringtone [query]
 │➪ ${prefix}stalk [option] [query]
+╰───────────────❏`
+let btn = [{
+                                urlButton: {
+                                    displayText: 'Youtube📽️',
+                                    url: 'https://youtube.com/channel/UCqMs3O812J8jOZsPyq0POtA'
+                                }
+                                }, {
+                                urlButton: {
+                                    displayText: 'Group Bot🔗',
+                                    url: 'https://chat.whatsapp.com'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Rules❗',
+                                    id: 'rules'
+                                }
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Owner👤',
+                                    id: 'owner'
+                                }  
+                            }, {
+                                quickReplyButton: {
+                                    displayText: 'Tampilkan Menu📚',
+                                    id: 'command'
+                                }
+                            }]
+                         let setbot = db.data.settings[botNumber]
+                        if (setbot.templateImage) {
+                        zxyn.send5ButImg(m.chat, anu, '© AxE', global.thumb, btn, global.thumb)
+                        } else if (setbot.templateGif) {
+                        zxyn.send5ButGif(m.chat, anu, '© AxE', global.visoka, btn, global.thumb)
+                        } else if (setbot.templateVid) {
+                        zxyn.send5ButVid(m.chat, anu, '© AxE', global.visoka, btn, global.thumb)
+                        } else if (setbot.templateMsg) {
+                        zxyn.send5ButMsg(m.chat, anu, '© AxE', btn)
+                        } else if (setbot.templateLocation) {
+                        zxyn.send5ButLoc(m.chat, anu, '© AxE', global.thumb, btn)
+                        }
+                     }
+            break
+case 'hentaimenu': {
+anu = `${ucapanWaktu} ${pushname}
+╭─❏ *『 INFO USER 』*
+│ ➪ Name : ${pushname}
+│ ➪ Number : ${m.sender.split('@')[0]}
+╰───────────────❏
+╭─❏ *『 INFO BOT 』*
+│ ➪ Prefix : ${prefix}
+│ ➪ Nama : ${global.namabot}
+│ ➪ Owner : ${global.namaowner}
+│ ➪ Mode : ${zxyn.public ? 'Public' : 'Self'}
+│ ➪ Runtime : ${runtime(process.uptime())}
+│ ➪ Library : Baileys Multi Device
+╰───────────────❏
+╭─❏ *『 INFO SERVER 』*
+│ ➪ Tanggal : ${jangwak}
+│ ➪ Waktu : ${time}
+│ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
+╰───────────────❏
+
+
+╭─❏ *『 HENTAI MENU 』*
+│➪ ${prefix}ass
+│➪ ${prefix}ahegao
+│➪ ${prefix}bdsm
+│➪ ${prefix}blowjob
+│➪ ${prefix}cuckold
+│➪ ${prefix}cum
+│➪ ${prefix}ero
+│➪ ${prefix}femdom
+│➪ ${prefix}foot
+│➪ ${prefix}gangbang
+│➪ ${prefix}glasses
+│➪ ${prefix}hentai
+│➪ ${prefix}jahy
+│➪ ${prefix}masturbation
+│➪ ${prefix}neko
+│➪ ${prefix}orgy
+│➪ ${prefix}panties
+│➪ ${prefix}pussy
+│➪ ${prefix}things
+│➪ ${prefix}yuri
 ╰───────────────❏`
 let btn = [{
                                 urlButton: {
@@ -3852,7 +3972,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -3930,7 +4050,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -4026,7 +4146,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -4103,7 +4223,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -4177,7 +4297,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -4256,7 +4376,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -4351,7 +4471,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -4434,7 +4554,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -4509,7 +4629,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -4582,7 +4702,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -4651,7 +4771,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
@@ -4721,7 +4841,7 @@ anu = `${ucapanWaktu} ${pushname}
 │ ➪ Tanggal : ${jangwak}
 │ ➪ Waktu : ${time}
 │ ➪ WIB : ${moment().utcOffset('+0700').format('HH:mm')}
-│ ➪ WIB : ${moment().utcOffset('+0900').format('HH:mm')}
+│ ➪ WIT : ${moment().utcOffset('+0900').format('HH:mm')}
 │ ➪ WITA : ${moment().utcOffset('+0800').format('HH:mm')}
 ╰───────────────❏
 
